@@ -1,0 +1,315 @@
+# Quickstart: Todo CLI Application
+
+**Purpose**: Get the Todo CLI application running and test basic functionality
+**Date**: 2026-01-01
+
+## Prerequisites
+
+- Python 3.11 or higher installed
+- Access to terminal/command line
+- `pytest` installed for running tests (optional)
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone <repository-url>
+cd todo-cli-app
+```
+
+### (Optional) Create Virtual Environment
+
+```bash
+# On macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+
+# On Windows
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Install Dependencies
+
+No external dependencies required for Phase I. Only standard library used.
+
+To run tests (optional):
+
+```bash
+pip install pytest
+```
+
+## Running the Application
+
+### Start Application
+
+```bash
+python src/main.py help
+```
+
+This displays all available commands and usage examples.
+
+## Basic Usage
+
+### 1. Add Your First Task
+
+```bash
+python src/main.py add "Buy groceries"
+```
+
+**Expected Output**:
+```
+Task created successfully.
+ID: 1
+Title: Buy groceries
+Status: Incomplete
+```
+
+### 2. View All Tasks
+
+```bash
+python src/main.py list
+```
+
+**Expected Output**:
+```
+Your Tasks:
+
+[ ] 1: Buy groceries
+```
+
+### 3. Add Another Task with Description
+
+```bash
+python src/main.py add "Write report" --description "Quarterly sales report"
+```
+
+**Expected Output**:
+```
+Task created successfully.
+ID: 2
+Title: Write report
+Description: Quarterly sales report
+Status: Incomplete
+```
+
+### 4. View Tasks Again
+
+```bash
+python src/main.py list
+```
+
+**Expected Output**:
+```
+Your Tasks:
+
+[ ] 1: Buy groceries
+[ ] 2: Write report (Quarterly sales report)
+```
+
+### 5. Mark Task as Complete
+
+```bash
+python src/main.py complete 1
+```
+
+**Expected Output**:
+```
+Task marked as complete: Buy groceries
+```
+
+### 6. View Tasks to See Completion Status
+
+```bash
+python src/main.py list
+```
+
+**Expected Output**:
+```
+Your Tasks:
+
+[✓] 1: Buy groceries
+[ ] 2: Write report (Quarterly sales report)
+```
+
+### 7. Update Task
+
+```bash
+python src/main.py update 1 --description "Weekly shopping list"
+```
+
+**Expected Output**:
+```
+Task updated successfully.
+ID: 1
+Title: Buy groceries
+Description: Weekly shopping list
+```
+
+### 8. Delete Task
+
+```bash
+python src/main.py delete 2
+```
+
+**Expected Output**:
+```
+Task deleted successfully: Write report
+```
+
+### 9. Verify Task Deleted
+
+```bash
+python src/main.py list
+```
+
+**Expected Output**:
+```
+Your Tasks:
+
+[✓] 1: Buy groceries (Weekly shopping list)
+```
+
+## Common Workflows
+
+### Creating Multiple Tasks
+
+```bash
+python src/main.py add "Task 1"
+python src/main.py add "Task 2" --description "Details for task 2"
+python src/main.py add "Task 3"
+```
+
+### Managing Task Lifecycle
+
+```bash
+# Create task
+python src/main.py add "Complete project"
+
+# Update task
+python src/main.py update 1 --title "Complete project by Friday"
+
+# Mark complete
+python src/main.py complete 1
+
+# View progress
+python src/main.py list
+
+# Delete when done
+python src/main.py delete 1
+```
+
+## Testing
+
+### Run All Tests
+
+```bash
+pytest tests/
+```
+
+### Run Specific Test File
+
+```bash
+pytest tests/unit/test_task.py
+pytest tests/integration/test_cli.py
+```
+
+### Run Tests with Verbose Output
+
+```bash
+pytest tests/ -v
+```
+
+## Common Issues
+
+### Task Not Found Error
+
+**Problem**:
+```
+Error: Task not found: 999
+```
+
+**Solution**: Verify the task ID exists by running `python src/main.py list` first.
+
+### Empty Title Error
+
+**Problem**:
+```
+Error: Title is required and cannot be empty or whitespace only.
+```
+
+**Solution**: Provide a non-empty title when using the `add` command.
+
+### Invalid Task ID Error
+
+**Problem**:
+```
+Error: Invalid task ID: abc
+```
+
+**Solution**: Task IDs must be integers (e.g., 1, 2, 3).
+
+## Understanding the Application
+
+### In-Memory Storage
+
+All tasks are stored in memory only. When you stop and restart the application, all tasks are lost. This is by design for Phase I.
+
+### Data Persistence
+
+There is no file or database persistence. Task data exists only while the application is running.
+
+### Task IDs
+
+Task IDs are sequential integers starting from 1. IDs are never reused, even after deletion.
+
+### Command Structure
+
+All commands follow this pattern:
+```
+python src/main.py <command> [arguments]
+```
+
+Use `python src/main.py help` to see all available commands.
+
+## Next Steps
+
+Once comfortable with basic usage:
+
+1. Read [spec.md](./spec.md) to understand all features
+2. Review [data-model.md](./data-model.md) to understand task structure
+3. Check [contracts/cli-interface.md](./contracts/cli-interface.md) for complete command reference
+4. Review [research.md](./research.md) for technical decisions
+
+## Development Quickstart
+
+For developers contributing to this codebase:
+
+1. Read [plan.md](./plan.md) for implementation stages
+2. Follow [tasks.md](./tasks.md) (generated by `/sp.tasks`) for atomic tasks
+3. Run tests frequently: `pytest tests/`
+4. Follow Constitution principles in [constitution.md](../../.specify/memory/constitution.md)
+
+## Getting Help
+
+For any command, use:
+
+```bash
+python src/main.py help
+```
+
+Or get help for specific command (when implemented):
+
+```bash
+python src/main.py add --help
+python src/main.py list --help
+```
+
+## Notes
+
+- This is Phase I of the Todo CLI application
+- All data is in-memory and lost on application restart
+- No authentication, cloud sync, or persistent storage in this phase
+- Commands are case-sensitive
+- Task IDs are sequential and never reused

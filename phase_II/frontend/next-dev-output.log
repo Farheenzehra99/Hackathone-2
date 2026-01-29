@@ -1,0 +1,153 @@
+   ▲ Next.js 14.0.4
+   - Local:        http://localhost:3000
+   - Environments: .env.local, .env
+
+ ✓ Ready in 38.2s
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/mnt/d/hackathone-02/phase_2/frontend/.next/cache/webpack/client-development/0.pack.gz_' -> '/mnt/d/hackathone-02/phase_2/frontend/.next/cache/webpack/client-development/0.pack.gz'
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 3.4s (64 modules)
+ ○ Compiling / ...
+The user aborted a request.
+
+Retrying 1/3...
+The user aborted a request.
+
+Retrying 2/3...
+The user aborted a request.
+
+Retrying 3/3...
+ ✓ Compiled / in 69.9s (512 modules)
+
+ ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ○ Compiling /not-found ...
+ ✓ Compiled /not-found in 722ms (252 modules)
+ ⨯ Error: Cannot find module '/mnt/d/hackathone-02/phase_2/frontend/.next/server/app/not-found_client-reference-manifest.js'
+Require stack:
+- /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/load-components.js
+- /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/utils.js
+- /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/dev/hot-middleware.js
+- /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+- /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/lib/router-server.js
+- /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/lib/start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1421:15)
+    at /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1227:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1504:12)
+    at mod.require (/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at loadClientReferenceManifest (/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/load-components.js:43:72)
+    at loadComponentsImpl (/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/load-components.js:65:29)
+    at async DevServer.findPageComponentsImpl (/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/next-server.js:671:36)
+    at async DevServer.findPageComponents (/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/dev/next-dev-server.js:562:20)
+    at async DevServer.renderErrorToResponseImpl (/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/base-server.js:2009:30)
+    at async DevServer.pipeImpl (/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/base-server.js:909:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/next-server.js:266:17)
+    at async DevServer.handleRequestImpl (/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/base-server.js:805:17) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/load-components.js',
+    '/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/utils.js',
+    '/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/dev/hot-middleware.js',
+    '/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+    '/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+    '/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/lib/router-server.js',
+    '/mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/lib/start-server.js'
+  ]
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 4.2s (652 modules)
+
+ ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat '/mnt/d/hackathone-02/phase_2/frontend/.next/server/vendor-chunks/clsx.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/clsx' in /mnt/d/hackathone-02/phase_2/frontend/.next/server for build dependencies doesn't lead to expected result '/mnt/d/hackathone-02/phase_2/frontend/.next/server/vendor-chunks/clsx.js', but to 'Error: Can't resolve './vendor-chunks/clsx' in '/mnt/d/hackathone-02/phase_2/frontend/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/clsx (expected /mnt/d/hackathone-02/phase_2/frontend/.next/server/vendor-chunks/clsx.js)
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/.next/server/webpack-runtime.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/.next/server/webpack-runtime.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/.next/server/app/not-found.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/.next/server/app/not-found.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/require.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/require.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/load-components.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/utils.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/worker.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/worker.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/webpack/bundle5.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/webpack/bundle5.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/webpack/webpack.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/webpack/webpack.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/plugins/define-env-plugin.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/plugins/define-env-plugin.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/swc/index.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/swc/index.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at resolve commonjs /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/next-themes' in /mnt/d/hackathone-02/phase_2/frontend/.next/server for build dependencies doesn't lead to expected result '/mnt/d/hackathone-02/phase_2/frontend/.next/server/vendor-chunks/next-themes.js', but to 'Error: Can't resolve './vendor-chunks/next-themes' in '/mnt/d/hackathone-02/phase_2/frontend/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/next-themes (expected /mnt/d/hackathone-02/phase_2/frontend/.next/server/vendor-chunks/next-themes.js)
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/.next/server/webpack-runtime.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/.next/server/webpack-runtime.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/.next/server/app/not-found.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/.next/server/app/not-found.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/require.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/require.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/load-components.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/utils.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/worker.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/worker.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/webpack/bundle5.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/webpack/bundle5.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/webpack/webpack.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/webpack/webpack.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/plugins/define-env-plugin.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/plugins/define-env-plugin.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/swc/index.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/swc/index.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at resolve commonjs /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/class-variance-authority' in /mnt/d/hackathone-02/phase_2/frontend/.next/server for build dependencies doesn't lead to expected result '/mnt/d/hackathone-02/phase_2/frontend/.next/server/vendor-chunks/class-variance-authority.js', but to 'Error: Can't resolve './vendor-chunks/class-variance-authority' in '/mnt/d/hackathone-02/phase_2/frontend/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/class-variance-authority (expected /mnt/d/hackathone-02/phase_2/frontend/.next/server/vendor-chunks/class-variance-authority.js)
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/.next/server/webpack-runtime.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/.next/server/webpack-runtime.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/.next/server/app/not-found.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/.next/server/app/not-found.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/require.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/require.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/load-components.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/utils.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/worker.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/worker.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-route-loader/index.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/webpack/bundle5.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/webpack/bundle5.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/webpack/webpack.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/compiled/webpack/webpack.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/plugins/define-env-plugin.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/plugins/define-env-plugin.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/swc/index.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/swc/index.js
+<w>  at file dependencies /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at file /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at resolve commonjs /mnt/d/hackathone-02/phase_2/frontend/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
