@@ -151,7 +151,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000';
 interface AddTaskModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onAdd?: (taskData: Omit<Task, 'id' | 'userId' | 'createdAt' | 'updatedAt'>) => void | Promise<void>;
+  onAdd?: (taskData: Omit<Task, 'id' | 'userId' | 'created_at' | 'updated_at'>) => void | Promise<void>;
 }
 
 export function AddTaskModal({ isOpen, onClose, onAdd }: AddTaskModalProps) {
@@ -174,7 +174,7 @@ export function AddTaskModal({ isOpen, onClose, onAdd }: AddTaskModalProps) {
     }
 
     // ✅ Prepare task data correctly
-    const taskData: Omit<Task, 'id' | 'userId' | 'createdAt' | 'updatedAt'> = {
+    const taskData: Omit<Task, 'id' | 'userId' | 'created_at' | 'updated_at'> = {
       title: title.trim(),
       description: description?.trim() || '',
       priority: priority || 'medium',

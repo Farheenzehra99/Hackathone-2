@@ -36,7 +36,7 @@ const taskApi = {
     return res.json();
   },
 
-  createTask: async (taskData: Omit<Task, 'id' | 'userId' | 'createdAt' | 'updatedAt'>) => {
+  createTask: async (taskData: Omit<Task, 'id' | 'userId' | 'created_at' | 'updated_at'>) => {
     // const token = localStorage.getItem('accessToken');
     // if (!token) return { success: false, message: 'User not authenticated' };
     const res = await fetch(`${API_BASE}/tasks/`, {
@@ -209,7 +209,7 @@ export function TaskList() {
     toast({ title: 'Task restored!', description: 'Task has been restored' });
   };
 
-  const handleAddTask = async (taskData: Omit<Task, 'id' | 'userId' | 'createdAt' | 'updatedAt'>) => {
+  const handleAddTask = async (taskData: Omit<Task, 'id' | 'userId' | 'created_at' | 'updated_at'>) => {
     try {
       const response = await taskApi.createTask(taskData);
       if (response.success) {

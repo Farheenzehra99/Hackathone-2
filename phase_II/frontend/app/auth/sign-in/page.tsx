@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -14,7 +14,7 @@ import { signInSchema } from '@/lib/validations';
 
 type SignInFormData = z.infer<typeof signInSchema>;
 
-export default function SignInPage() {
+function SignInForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
@@ -30,29 +30,29 @@ export default function SignInPage() {
     resolver: zodResolver(signInSchema),
   });
 
-const onSubmit = async (data: SignInFormData) => {
-  setIsLoading(true);
+  const onSubmit = async (data: SignInFormData) => {
+    setIsLoading(true);
 
-  try {
-    await signIn({ email: data.email, password: data.password });
+    try {
+      await signIn({ email: data.email, password: data.password });
 
-    toast({
-      title: 'Signed in!',
-      description: 'You have successfully signed in.',
-    });
+      toast({
+        title: 'Signed in!',
+        description: 'You have successfully signed in.',
+      });
 
-    router.push('/dashboard/tasks'); // ✅ HERE
-    router.refresh();
-  } catch (error: any) {
-    toast({
-      title: 'Error',
-      description: error.message || 'Invalid credentials. Please try again.',
-      variant: 'destructive',
-    });
-  } finally {
-    setIsLoading(false);
-  }
-};
+      router.push('/dashboard/tasks');
+      router.refresh();
+    } catch (error: any) {
+      toast({
+        title: 'Error',
+        description: error.message || 'Invalid credentials. Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -88,5 +88,29 @@ const onSubmit = async (data: SignInFormData) => {
         {isLoading ? 'Signing In...' : 'Sign In'}
       </Button>
     </form>
+  );
+}
+
+function LoadingFallback() {
+  return (
+    <div className="space-y-4">
+      <div className="space-y-2">
+        <Label>Email</Label>
+        <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
+      </div>
+      <div className="space-y-2">
+        <Label>Password</Label>
+        <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
+      </div>
+      <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
+    </div>
+  );
+}
+
+export default function SignInPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <SignInForm />
+    </Suspense>
   );
 }
