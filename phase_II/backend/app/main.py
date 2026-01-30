@@ -43,6 +43,7 @@ app.add_middleware(
         "http://localhost:3000",
         "https://hackathone2-tau.vercel.app",
         "https://hackathone2-kpsg7b73a-farheenzehra99s-projects.vercel.app",
+        "https://hackathone2-2q98psw1t-farheenzehra99s-projects.vercel.app",
     ],
     allow_credentials=False,
     allow_methods=["*"],
