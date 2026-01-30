@@ -110,10 +110,11 @@ async def login(
     except AuthException:
         raise
     except Exception as e:
-        logger.error(f"Login error: {str(e)}")
+        logger.error(f"Login error: {str(e)}", exc_info=True)
+        error_detail = str(e) if settings.DEBUG else "An error occurred during login"
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="An error occurred during login"
+            detail=error_detail
         )
 
 
@@ -179,10 +180,12 @@ async def register(
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"Registration error: {str(e)}")
+        logger.error(f"Registration error: {str(e)}", exc_info=True)
+        # Include error details in development mode
+        error_detail = str(e) if settings.DEBUG else "An error occurred during registration"
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="An error occurred during registration"
+            detail=error_detail
         )
 
 
