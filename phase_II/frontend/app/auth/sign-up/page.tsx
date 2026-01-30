@@ -15,6 +15,8 @@ import { signUpSchema } from '@/lib/validations';
 type SignUpFormData = z.infer<typeof signUpSchema>;
 
 export default function SignUpPage() {
+  console.log("API BASE =", process.env.NEXT_PUBLIC_API_BASE)
+
   const router = useRouter();
   const { toast } = useToast();
   const { signUp } = useAuth();
