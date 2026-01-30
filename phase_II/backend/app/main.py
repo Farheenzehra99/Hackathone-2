@@ -38,8 +38,13 @@ app = FastAPI(
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
-    allow_credentials=True,
+    allow_origins=[
+        "https://*.vercel.app",
+        "http://localhost:3000",
+        "https://hackathone2-tau.vercel.app",
+        "https://hackathone2-kpsg7b73a-farheenzehra99s-projects.vercel.app",
+    ],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
     # expose_headers=["Access-Control-Allow-Origin"]
