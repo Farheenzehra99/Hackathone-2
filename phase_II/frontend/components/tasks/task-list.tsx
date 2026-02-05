@@ -29,7 +29,7 @@ const taskApi = {
     // if (!token) {
     //   return { success: false, message: 'User not authenticated' }; // prevent 403
     // }
-    const res = await fetch(`${API_BASE}/tasks/`, {
+    const res = await fetch(`${API_BASE}/tasks`, {
       headers: getAuthHeaders(),
     });
     return res.json();
@@ -38,7 +38,7 @@ const taskApi = {
   createTask: async (taskData: Omit<Task, 'id' | 'userId' | 'created_at' | 'updated_at'>) => {
     // const token = localStorage.getItem('accessToken');
     // if (!token) return { success: false, message: 'User not authenticated' };
-    const res = await fetch(`${API_BASE}/tasks/`, {
+    const res = await fetch(`${API_BASE}/tasks`, {
       method: 'POST',
       headers: getAuthHeaders(),
       body: JSON.stringify(taskData),

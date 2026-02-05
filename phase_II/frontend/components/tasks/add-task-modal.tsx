@@ -49,7 +49,7 @@ export function AddTaskModal({ isOpen, onClose, onAdd }: AddTaskModalProps) {
     }
 
     try {
-      const response = await fetch(`${API_BASE}/tasks/`, {
+      const response = await fetch(`${API_BASE}/tasks`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
