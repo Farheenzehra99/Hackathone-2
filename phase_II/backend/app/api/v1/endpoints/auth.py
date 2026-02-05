@@ -53,13 +53,19 @@ router = APIRouter()
 # Configure logger
 logger = logging.getLogger(__name__)
 
+def _is_password_too_long(password: str) -> bool:
+    # bcrypt limit is 72 bytes; use bytes length to be safe with Unicode.
+    return len(password.encode("utf-8")) > 72
+
 def verify_password(plain_password: str, hashed_password: str) -> bool:
-    """Verify password (bcrypt max 72 chars)."""
-    return pwd_context.verify(plain_password[:72], hashed_password)
+    """Verify password (bcrypt max 72 bytes)."""
+    if _is_password_too_long(plain_password):
+        return False
+    return pwd_context.verify(plain_password, hashed_password)
 
 def get_password_hash(password: str) -> str:
     """Generate hash for a password."""
-    return pwd_context.hash(password[:72])
+    return pwd_context.hash(password)
 
 @router.post("/login", response_model=ApiResponse)
 async def login(
@@ -125,6 +131,12 @@ async def register(
 ):
     """Register a new user."""
     try:
+        if _is_password_too_long(request.password):
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Password too long (max 72 bytes)"
+            )
+
         # Check if user already exists
         result = await session.execute(
             select(User).where(User.email == request.email)
