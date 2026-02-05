@@ -22,7 +22,7 @@ const getUserInfo = async (): Promise<User> => {
       throw new Error('No access token found');
     }
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}/auth/me`, {
+    const response = await fetch(`/api/auth/me`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

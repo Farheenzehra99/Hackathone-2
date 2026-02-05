@@ -32,26 +32,25 @@ app = FastAPI(
     title="Todo API",
     description="FastAPI backend for the Todo application",
     version="1.0.0",
-    lifespan=lifespan
+    lifespan=lifespan,
+    root_path="/api/v1"  # Yeh add kar do (proxy routing fix karega)
 )
 
 # Add CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "https://hackathone2-tau.vercel.app",
-        "https://hackathone2-kpsg7b73a-farheenzehra99s-projects.vercel.app",
-        "https://hackathone2-2q98psw1t-farheenzehra99s-projects.vercel.app",
-    ],
-    allow_credentials=False,
-    allow_methods=["*"],
-    allow_headers=["*"],
-    # expose_headers=["Access-Control-Allow-Origin"]
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=[
+#         "http://localhost:3000",
+#         "https://hackathone2-tau.vercel.app",
+#         "https://hackathone2-kpsg7b73a-farheenzehra99s-projects.vercel.app",
+#     ],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 # Include API routes
-app.include_router(api_router, prefix="/api/v1")
+app.include_router(api_router, prefix="")
 for route in app.routes:
     print(route.path)
 
@@ -64,6 +63,20 @@ def read_root():
 def health_check():
     return {"status": "healthy"}
 
+# Manual OPTIONS handler for all paths (helps with preflight in HF proxy)
+@app.options("/{full_path:path}")
+async def options_handler(full_path: str):
+    return JSONResponse(
+        content="OK",
+        headers={
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization, Accept",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Max-Age": "86400",
+        }
+    )
+    
 # Exception handlers
 @app.exception_handler(StarletteHTTPException)
 async def http_exception_handler(request: Request, exc: StarletteHTTPException):
@@ -176,3 +189,16 @@ async def general_exception_handler(request: Request, exc: Exception):
         status_code=500,
         content=error_response
     )
+
+# CORS middleware SAB SE LAST MEIN (after all routes & handlers)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "https://hackathone2-tau.vercel.app",
+        "https://hackathone2-kpsg7b73a-farheenzehra99s-projects.vercel.app",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

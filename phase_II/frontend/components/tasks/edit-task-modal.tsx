@@ -139,7 +139,7 @@ export function EditTaskModal({
   const [priority, setPriority] = useState<'low' | 'medium' | 'high'>('medium');
   const [loading, setLoading] = useState(false);
 
-  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000';
+  const API_BASE = '/api';
   const token = localStorage.getItem("accessToken");
 
   useEffect(() => {

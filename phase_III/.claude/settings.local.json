@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install @radix-ui/react-checkbox @radix-ui/react-select)"
+    ]
+  }
+}

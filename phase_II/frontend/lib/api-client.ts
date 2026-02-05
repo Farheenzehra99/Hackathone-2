@@ -1,7 +1,7 @@
 import { Task, User, ApiResponse } from './types';
 import { logger } from './logger';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000';
+const API_BASE_URL = '/api';
 
 // Helper function to get auth headers
 const getAuthHeaders = (): HeadersInit => {

@@ -7,8 +7,8 @@ from typing import List
 BASE_DIR = Path(__file__).resolve().parent.parent  # app/core -> backend/
 
 class Settings(BaseSettings):
-    BETTER_AUTH_SECRET: str
-    BETTER_AUTH_URL: str
+    BETTER_AUTH_SECRET: str = ""
+    BETTER_AUTH_URL: str = ""
     DATABASE_URL: str
     DEBUG: bool = False
     LOG_LEVEL: str = "info"

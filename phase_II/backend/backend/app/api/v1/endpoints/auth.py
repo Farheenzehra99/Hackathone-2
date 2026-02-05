@@ -47,6 +47,7 @@ class LogoutResponse(BaseModel):
 class TokenRefreshRequest(BaseModel):
     refresh_token: str
 
+# router = APIRouter()
 router = APIRouter()
 
 # Configure logger
@@ -110,11 +111,10 @@ async def login(
     except AuthException:
         raise
     except Exception as e:
-        logger.error(f"Login error: {str(e)}", exc_info=True)
-        error_detail = str(e) if settings.DEBUG else "An error occurred during login"
+        logger.error(f"Login error: {str(e)}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=error_detail
+            detail="An error occurred during login"
         )
 
 
@@ -180,14 +180,9 @@ async def register(
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"Registration error: {str(e)}", exc_info=True)
-        # Include error details in development mode
-        error_detail = str(e) if settings.DEBUG else "An error occurred during registration"
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=error_detail
-        )
-
+            await session.rollback()
+            logger.exception("Registration failed")
+            raise HTTPException(500, "An error occurred during registration")
 
 @router.post("/logout", response_model=ApiResponse)
 async def logout():

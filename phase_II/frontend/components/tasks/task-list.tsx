@@ -11,8 +11,7 @@ import { Input } from '../../components/ui/input';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '../../components/ui/select';
 
 // ---------------- JWT + Neon DB Helper ----------------
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || '';
-if (!API_BASE) console.error('NEXT_PUBLIC_API_BASE is missing! Check .env.local');
+const API_BASE = '/api';
 
 
 const getAuthHeaders = (json: boolean = true): Record<string, string> => {
