@@ -10,7 +10,7 @@
 
 import { Message } from '@/hooks/useChat';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_BASE_URL = process.env.HF_API_BASE!;
 
 interface ChatResponse {
   reply: string;
