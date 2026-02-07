@@ -46,13 +46,14 @@ export async function sendChatMessage(
   try {
     const token = getAuthToken();
 
-    const response = await fetch(`${API_BASE_URL}/api/${userId}/chat`, {
+    const response = await fetch(`${API_BASE_URL}/api/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({
+        user_id: userId,
         message,
         conversation_id: conversationId
       })
