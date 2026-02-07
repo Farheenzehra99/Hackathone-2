@@ -1,0 +1,126 @@
+# API Contract: Todo App with Glassmorphism UI
+
+## Overview
+This document defines the API contracts for the glassmorphism todo app. Since the current implementation is UI-only, these represent the anticipated API contracts for future backend integration.
+
+## Task Endpoints
+
+### GET /api/tasks
+Retrieve all tasks for the current user
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "taskId": "string",
+      "title": "string",
+      "description": "string",
+      "status": "pending|completed",
+      "priority": "low|medium|high",
+      "createdAt": "ISODateString",
+      "updatedAt": "ISODateString",
+      "dueDate": "ISODateString|null"
+    }
+  ],
+  "meta": {
+    "total": "number",
+    "page": "number",
+    "limit": "number"
+  }
+}
+```
+
+### POST /api/tasks
+Create a new task
+
+**Request Body:**
+```json
+{
+  "title": "string (required)",
+  "description": "string (optional)",
+  "status": "pending|completed (default: pending)",
+  "priority": "low|medium|high (default: medium)",
+  "dueDate": "ISODateString (optional)"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "taskId": "string",
+    "title": "string",
+    "description": "string",
+    "status": "pending|completed",
+    "priority": "low|medium|high",
+    "createdAt": "ISODateString",
+    "updatedAt": "ISODateString",
+    "dueDate": "ISODateString|null"
+  }
+}
+```
+
+### PUT /api/tasks/{taskId}
+Update an existing task
+
+**Request Body:**
+```json
+{
+  "title": "string (optional)",
+  "description": "string (optional)",
+  "status": "pending|completed (optional)",
+  "priority": "low|medium|high (optional)",
+  "dueDate": "ISODateString (optional)"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "taskId": "string",
+    "title": "string",
+    "description": "string",
+    "status": "pending|completed",
+    "priority": "low|medium|high",
+    "createdAt": "ISODateString",
+    "updatedAt": "ISODateString",
+    "dueDate": "ISODateString|null"
+  }
+}
+```
+
+### DELETE /api/tasks/{taskId}
+Delete a task
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Task deleted successfully"
+}
+```
+
+## Error Responses
+
+All error responses follow this structure:
+```json
+{
+  "success": false,
+  "error": {
+    "code": "string",
+    "message": "string",
+    "details": "object (optional)"
+  }
+}
+```
+
+## Common Error Codes
+- `TASK_NOT_FOUND`: Task with given ID does not exist
+- `VALIDATION_ERROR`: Request data failed validation
+- `UNAUTHORIZED`: User not authenticated
+- `INTERNAL_ERROR`: Server-side error occurred
