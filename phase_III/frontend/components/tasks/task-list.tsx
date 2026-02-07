@@ -24,7 +24,7 @@ const getAuthHeaders = (json: boolean = true): Record<string, string> => {
 };
 
 const taskApi = {
-  getAllTasks: async (): Promise<{ success: boolean; data?: Task[]; message?: string }> => {
+  getAllTasks: async (): Promise<{ success: boolean; data?: Task[] | { tasks: Task[] }; message?: string }> => {
     // const token = localStorage.getItem('accessToken');
     // if (!token) {
     //   return { success: false, message: 'User not authenticated' }; // prevent 403
@@ -104,8 +104,8 @@ export function TaskList() {
       const response = await taskApi.getAllTasks();
       const taskList = Array.isArray(response.data)
         ? response.data
-        : Array.isArray(response.data?.tasks)
-          ? response.data.tasks
+        : Array.isArray((response.data as { tasks?: Task[] } | undefined)?.tasks)
+          ? (response.data as { tasks: Task[] }).tasks
           : [];
       setTasks(taskList);
       // else
